@@ -13,6 +13,8 @@
     "Type": "aleclarson/Type#2.0.0"
   },
   "dependencies": {
+    "OneOf": "aleclarson/OneOf#1.0.0",
+    "emptyFunction": "aleclarson/emptyFunction#1.0.0",
     "getProto": "aleclarson/getProto#1.0.0"
   }
 }

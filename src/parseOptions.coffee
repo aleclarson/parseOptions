@@ -1,16 +1,24 @@
 
+emptyFunction = require "emptyFunction"
 getProto = require "getProto"
+OneOf = require "OneOf"
 
-parseOptions = (type, options) ->
+parseOptions = (type, values, options = {}) ->
 
   parsed = {}
 
+  ignored =
+    if options.ignore
+    then OneOf options.ignore
+    else {test: emptyFunction.thatReturnsFalse}
+
   superType = type
   loop
-    if optionTypes = superType.optionTypes
-      for key in Object.keys optionTypes
-        if options[key] isnt undefined
-          parsed[key] = options[key]
+    if types = superType.optionTypes
+      for key in Object.keys types
+        continue if values[key] is undefined
+        continue if ignored.test key
+        parsed[key] = values[key]
 
     superType = getSuperType superType
     break if superType is Object
