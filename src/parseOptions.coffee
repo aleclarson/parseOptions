@@ -23,6 +23,9 @@ parseOptions = (type, values, options = {}) ->
     superType = getSuperType superType
     break if superType is Object
 
+  if options.assign
+    Object.assign parsed, options.assign
+
   return parsed
 
 getSuperType = (type) ->
