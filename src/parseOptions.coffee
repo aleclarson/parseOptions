@@ -12,9 +12,10 @@ parseOptions = (type, values, options = {}) ->
     then OneOf options.ignore
     else {test: emptyFunction.thatReturnsFalse}
 
+  superKey = options.key ? "optionTypes"
   superType = type
   loop
-    if types = superType.optionTypes
+    if types = superType[superKey]
       for key in Object.keys types
         continue if values[key] is undefined
         continue if ignored.test key
