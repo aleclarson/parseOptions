@@ -1,0 +1,20 @@
+{
+  "name": "parseOptions",
+  "version": "1.0.0",
+  "main": "js/parseOptions",
+  "plugins": [
+    "lotus-coffee"
+  ],
+  "scripts": {
+    "build": "coffee-build -v 1.11.x -b -o js src",
+    "postinstall": "npm run build"
+  },
+  "devDependencies": {
+    "Type": "aleclarson/Type#2.3.1"
+  },
+  "dependencies": {
+    "OneOf": "aleclarson/OneOf#1.0.1",
+    "emptyFunction": "aleclarson/emptyFunction#1.0.0",
+    "getProto": "aleclarson/getProto#1.0.0"
+  }
+}
