@@ -26,5 +26,5 @@ describe "parseOptions", ->
 createType = ({ inherits, options }) ->
   type = Type()
   type.inherits inherits if inherits
-  type.defineOptions options if options
+  type.defineArgs options if options
   return type.build()
